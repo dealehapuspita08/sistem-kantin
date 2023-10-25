@@ -5,15 +5,14 @@ include_once("config.php");
 // Check if form is submitted for user update, then redirect to homepage after update
 if(isset($_POST['update']))
 {	
-    $id = $_POST['id'];
+    $id = $_POST['id_menu'];
     
-    $id=$_POST['id'];
-    $nama=$_POST['nama'];
-    $nohp=$_POST['nohp'];
-    $alamat=$_POST['alamat'];
+    $nama=$_POST['nama_menu'];
+    $harga=$_POST['harga'];
+    $jenis=$_POST['jenis'];
         
     // update user data
-    $result = mysqli_query($mysqli, "UPDATE penjual SET id='$id',nama='$nama',nohp='$nohp',alamat='$alamat' WHERE id=$id");
+    $result = mysqli_query($mysqli, "UPDATE tb_menu SET nama_menu='$nama', harga='$harga',jenis='$jenis' WHERE id_menu='$id'");
     
     // Redirect to homepage to display updated user in list
     header("Location: index.php");
@@ -25,14 +24,13 @@ if(isset($_POST['update']))
 $id = $_GET['id'];
  
 // Fetech user data based on id
-$result = mysqli_query($mysqli, "SELECT * FROM penjual WHERE id=$id");
+$result = mysqli_query($mysqli, "SELECT * FROM tb_menu WHERE id_menu=$id");
  
 while($user_data = mysqli_fetch_array($result))
 {
-    $id = $user_data['id'];
-    $nama = $user_data['nama'];
-    $nohp= $user_data['nohp'];
-    $alamat= $user_data['alamat'];
+    $nama = $user_data['nama_menu'];
+    $harga = $user_data['harga'];
+    $jenis = $user_data['jenis'];
 }
 ?>
 <html>
@@ -40,30 +38,30 @@ while($user_data = mysqli_fetch_array($result))
     <title>Edit User Data</title>
 </head>
  
-<body>
+<body>der="0">
+            <tr> 
+                <td
     <a href="index.php">Home</a>
     <br/><br/>
     
     <form name="update_user" method="post" action="edit.php">
-        <table border="0">
-            <tr> 
-                <td>id</td>
-                <td><input type="text" name="id" value=<?php echo $id;?>></td>
+        <table bor>Nama Makanan</td>
+                <td><input type="text" name="nama_menu" value=<?php echo $nama;?>></td>
             </tr>
             <tr> 
-                <td>nama</td>
-                <td><input type="text" name="nama" value=<?php echo $nama;?>></td>
+                <td>Harga Makanan</td>
+                <td><input type="number" name="harga" value=<?php echo $harga;?>></td>
             </tr>
             <tr> 
-                <td>nohp</td>
-                <td><input type="text" name="nohp" value=<?php echo $nohp;?>></td>
-            <tr> 
-                <td>alamat</td>
-                <td><input type="text" name="alamat" value=<?php echo $alamat;?>></td>
-            </tr>
+                <td>Jenis Makanan</td>
+                <td><select name="jenis" id="">
+                    <option value=<?php echo $jenis;?>><?php echo $jenis;?></option>
+                    <option value="Makanan Berat">Makanan Berat</option>
+                    <option value="Makanan Ringan">Makanan Ringan</option>
+                </select>
             </tr>
             <tr>
-                <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
+                <td><input type="hidden" name="id_menu" value=<?php echo $_GET['id'];?>></td>
                 <td><input type="submit" name="update" value="Update"></td>
             </tr>
         </table>

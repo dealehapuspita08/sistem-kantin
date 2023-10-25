@@ -4,7 +4,7 @@
  */
  
 $databaseHost = 'localhost';
-$databaseName = 'db_kantin';
+$databaseName = 'sistem_kantin';
 $databaseUsername = 'root';
 $databasePassword = '';
  
