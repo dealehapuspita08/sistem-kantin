@@ -3,7 +3,7 @@
 include_once("config.php");
  
 // Fetch all users data from database
-$result = mysqli_query($mysqli, "SELECT * FROM tb_penjual ORDER BY id_penjual DESC");
+$result = mysqli_query($mysqli, "SELECT * FROM penjual ORDER BY id DESC");
 
 ?>
 
@@ -34,7 +34,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM tb_penjual ORDER BY id_penjual DE
      <td><?= $user_data['no_hp'] ?></td>   
      <td><?= $user_data['alamat'] ?></td>    
 
-     <td><a href="editpenjual.php?id=<?= $user_data['id_penjual'] ?>">Edit</a> | <a href="deletepenjual.php?id=<?= $user_data['id_penjual'] ?>">Delete</a></td></tr>  
+       
+     <td><a href="edit.php?id=<?= $user_data['id'] ?>">Edit</a> | <a href="delete.php?id=<?= $user_data['id'] ?>">Delete</a></td></tr> 
 
 <?php } ?>
     </table><br>
@@ -52,6 +53,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM tb_penjual ORDER BY id_penjual DE
        ?> -->
        
     </div>
-    <a href="addpenjual.php">Pencet</a>
+    <a href="addpenjual.php">Tambah Penjual</a>
 </body>
 </html>

@@ -3,7 +3,7 @@
 include_once("config.php");
  
 // Fetch all users data from database
-$result = mysqli_query($mysqli, "SELECT * FROM tb_menu a join tb_penjual b on b.id_penjual = a.id_penjual ORDER BY id_menu DESC");
+$result = mysqli_query($mysqli, "SELECT * FROM menu a join penjual b on b.id = a.id_penjual ORDER BY id_penjual DESC");
 
 ?>
 
@@ -15,6 +15,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM tb_menu a join tb_penjual b on b.
     <title>Document</title>
 </head>
 <body>
+    <a href="add.php">add</a>
+    <br/><br/>
     <div class="container">
     <table class="tabel" width='80%' border=1> 
 
@@ -37,7 +39,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM tb_menu a join tb_penjual b on b.
      <td><?= $user_data['jenis'] ?></td>   
      <td><?= $user_data['nama'] ?></td>    
 
-     <td><a href="edit.php?id=<?= $user_data['id_menu'] ?>">Edit</a> | <a href="delete.php?id=<?= $user_data['id_menu'] ?>">Delete</a></td></tr>  
+     <td><a href="edit.php?id=<?= $user_data['id'] ?>">Edit</a> | <a href="delete.php?id=<?= $user_data['id'] ?>">Delete</a></td></tr>  
 
 <?php } ?>
     </table><br>

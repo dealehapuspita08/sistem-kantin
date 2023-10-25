@@ -1,4 +1,4 @@
-<a href="index.php">Go to Home</a>
+<a href="penjualan.php">Go to Home</a>
     <br/><br/>
  
     <form action="addpenjual.php" method="post" name="form1">
@@ -19,7 +19,7 @@
                 <td></td>
                 <?php 
                     include "config.php";
-                    $query = "select * from tb_penjual";
+                    $query = "select * from penjual";
                     $datapenjual = mysqli_query($mysqli,$query);
               
                 ?>
@@ -42,7 +42,7 @@
         include_once("config.php");
                 
         // Insert user data into table
-        $result = mysqli_query($mysqli, "INSERT INTO tb_penjual VALUES(null,'$nama','$nomor','$alamat')");
+        $result = mysqli_query($mysqli, "INSERT INTO penjual VALUES(null,'$nama','$nomor','$alamat')");
         
         // Show message when user added
         echo "<script>alert('Berhasil Tambah Data');

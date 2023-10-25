@@ -4,7 +4,7 @@
  */
  
 $databaseHost = 'localhost';
-$databaseName = 'sistem_kantin';
+$databaseName = 'kantin_sekolah';
 $databaseUsername = 'root';
 $databasePassword = '';
  

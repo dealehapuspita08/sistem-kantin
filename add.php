@@ -28,15 +28,15 @@
                 <td>Penjual</td>
                 <?php 
                     include "config.php";
-                    $query = "select * from tb_penjual";
-                    $datapenjual = mysqli_query($mysqli,$query);
+                    $query = "select * from penjual";
+                    $datapenjual = mysqli_query($mysqli, $query);
               
                 ?>
                 <td><select name="penjual" id="">
                     <?php 
                         while ($row = mysqli_fetch_array($datapenjual)) {
                     ?>
-                    <option value="<?= $row['id_penjual'] ?>"><?= $row['nama'] ?></option>
+                    <option value="<?= $row['id'] ?>"><?= $row['nama'] ?></option>
                     <?php } ?>
             </tr>
             <tr> 
@@ -59,7 +59,7 @@
         include_once("config.php");
                 
         // Insert user data into table
-        $result = mysqli_query($mysqli, "INSERT INTO tb_menu VALUES(null,'$jenis','$harga','$nama','$penjual')");
+        $result = mysqli_query($mysqli, "INSERT INTO menu VALUES(null,'$jenis','$harga','$nama','$penjual')");
         
         // Show message when user added
         echo "<script>alert('Berhasil Tambah Data');
