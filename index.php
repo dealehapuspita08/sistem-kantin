@@ -9,42 +9,43 @@ $result = mysqli_query($mysqli, "SELECT * FROM menu a join penjual b on b.id = a
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <a href="add.php">add</a>
-    <br/><br/>
+    <br /><br />
     <div class="container">
-    <table class="tabel" width='80%' border=1> 
+        <table class="tabel" width='80%' border=1>
 
 
-<tr>
-        <th>Nama Makanan</th> 
-        <th>Harga</th>
-        <th>Jenis Makanan</th> 
-        <th>Penjual</th>
-        <th>Aksi</th>
+            <tr>
+                <th>Nama Makanan</th>
+                <th>Harga</th>
+                <th>Jenis Makanan</th>
+                <th>Penjual</th>
+                <th>Aksi</th>
 
-    </tr>
+            </tr>
 
-    <?php  
+            <?php  
     while($user_data = mysqli_fetch_array($result)) {         
     ?>
-  <tr>
-     <td><?= $user_data['nama_menu'] ?></td>
-     <td>Rp.<?= number_format($user_data['harga'],2,',','.') ?></td>
-     <td><?= $user_data['jenis'] ?></td>   
-     <td><?= $user_data['nama'] ?></td>    
+            <tr>
+                <td><?= $user_data['nama_menu'] ?></td>
+                <td>Rp.<?= number_format($user_data['harga'],2,',','.') ?></td>
+                <td><?= $user_data['jenis'] ?></td>
+                <td><?= $user_data['nama'] ?></td>
 
-     <td><a href="edit.php?id=<?= $user_data['id'] ?>">Edit</a> | <a href="delete.php?id=<?= $user_data['id'] ?>">Delete</a></td></tr>  
+                <td><a href="edit.php?id_menu=<?= $user_data['id'] ?>">Edit</a>
+                    | <a href="delete.php?id=<?= $user_data['id'] ?>">Delete</a></td>
+            </tr <?php } ?> </table><br>
 
-<?php } ?>
-    </table><br>
-
-    <!-- <?php 
+            <!-- <?php 
     
         //  while($user_data = mysqli_fetch_array($result ))  {         
             
@@ -55,7 +56,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM menu a join penjual b on b.id = a
 
         //  }
        ?> -->
-       
+
     </div>
 </body>
+
 </html>

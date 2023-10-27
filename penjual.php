@@ -35,7 +35,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM penjual ORDER BY id DESC");
      <td><?= $user_data['alamat'] ?></td>    
 
        
-     <td><a href="edit.php?id=<?= $user_data['id'] ?>">Edit</a> | <a href="delete.php?id=<?= $user_data['id'] ?>">Delete</a></td></tr> 
+     <td><a href="editpenjual.php?id=<?= $user_data['id'] ?>">Edit</a> | <a href="deletepenjual.php?id=<?= $user_data['id'] ?>">Delete</a></td></tr> 
 
 <?php } ?>
     </table><br>

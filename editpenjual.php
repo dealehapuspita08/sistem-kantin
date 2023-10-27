@@ -12,7 +12,7 @@ if(isset($_POST['update']))
 
         
     // update user data
-    $result = mysqli_query($mysqli, "UPDATE penjual SET nama='$nama', no_hp='$hp',alamat='$alamat' WHERE id_penjual='$id'");
+    $result = mysqli_query($mysqli, "UPDATE penjual SET nama='$nama', no_hp='$hp',alamat='$alamat' WHERE id='$id'");
     
     // Redirect to homepage to display updated user in list
     header("Location: penjual.php");
@@ -24,7 +24,7 @@ if(isset($_POST['update']))
 $id = $_GET['id'];
  
 // Fetech user data based on id
-$result = mysqli_query($mysqli, "SELECT * FROM penjual WHERE id_penjual=$id");
+$result = mysqli_query($mysqli, "SELECT * FROM penjual WHERE id=$id");
  
 while($user_data = mysqli_fetch_array($result))
 {

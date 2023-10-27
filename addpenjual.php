@@ -1,4 +1,4 @@
-<a href="penjualan.php">Go to Home</a>
+<a href="penjual.php">Go to Home</a>
     <br/><br/>
  
     <form action="addpenjual.php" method="post" name="form1">
